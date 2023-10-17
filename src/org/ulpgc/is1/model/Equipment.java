@@ -12,4 +12,8 @@ public class Equipment extends Extra{
     public String getName() {
         return name;
     }
+    @Override
+    public String toString() {
+        return "Equipment: " + name + " - Price: " + price + "€";
+    }
 }

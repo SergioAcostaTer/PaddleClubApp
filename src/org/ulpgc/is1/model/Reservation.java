@@ -9,11 +9,15 @@ public class Reservation {
     private final int id;
     private final Date date;
     private final List<Extra> extras;
+    private final Customer customer;
+    private final Court court;
 
-    public Reservation() {
+    public Reservation(Customer customer, Court court) {
         this.id = NEXT_ID++;
         this.date = new Date();
         this.extras = new ArrayList<>();
+        this.customer = customer;
+        this.court = court;
     }
 
     public int getId() {
@@ -25,14 +29,13 @@ public class Reservation {
     }
 
     public int price() {
-        int reservationPrice = 10;
         int total = 0;
 
-        total += reservationPrice;
-
-        for (Extra extra: extras){
+        for (Extra extra: extras) {
             total += extra.getPrice();
         }
+
+        total += court.getPrice();
 
         return total;
     }
@@ -40,4 +43,36 @@ public class Reservation {
     public void addExtra(Extra extra) {
         extras.add(extra);
     }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public Court getCourt() {
+        return court;
+    }
+
+
+    @Override
+    public String toString() {
+        String result = "Reservation ID: " + id + "\n";
+        result += "Reservation Date: " + date + "\n";
+        result += "Customer Info:\n" + customer + "\n";
+        result += "Court Info: (\n" + court + "\n)\n";
+
+        if (this.extras.size() > 0){
+            result += "Extras: (\n";
+
+            for (Extra extra : extras) {
+                result += "    " + extra + "\n";
+            }
+
+            result += ")\n";
+        }
+
+        result += "Total Price: " + price() + "€\n";
+
+        return result;
+    }
+
 }

@@ -4,19 +4,19 @@ public class NIF {
     private String number;
 
     public NIF(String number) {
-        this.number = number;
+        if (isValidNIF(number)) {
+            this.number = number;
+        } else {
+            this.number = "XXXX";
+        }
     }
 
-    public boolean isValid() {
-        return number != null && !number.isEmpty();
+    private boolean isValidNIF(String number) {
+        return number != null && number.length() == 10;
     }
 
-
-    public String getNumber() {
+    @Override
+    public String toString() {
         return number;
-    }
-
-    public void setNumber(String number) {
-        this.number = number;
     }
 }
