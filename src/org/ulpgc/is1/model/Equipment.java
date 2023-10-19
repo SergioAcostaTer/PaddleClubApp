@@ -5,7 +5,7 @@ public class Equipment extends Extra{
     private final String name;
 
     public Equipment(String name, int price){
-        this.price = price;
+        super(price);
         this.name = name;
     }
 

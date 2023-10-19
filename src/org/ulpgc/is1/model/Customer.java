@@ -11,6 +11,18 @@ public class Customer {
         this.nif = nif;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public NIF getNif() {
+        return nif;
+    }
+
     @Override
     public String toString() {
         return "Name: " + name + "\n" +

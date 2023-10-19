@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 public class Reservation {
-    private static int NEXT_ID = 1;
+    private static int NEXT_ID = 0;
     private final int id;
     private final Date date;
     private final List<Extra> extras;

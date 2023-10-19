@@ -29,6 +29,8 @@ public class Main {
 
         manager.reserve(reservation);
 
+        System.out.println("There is " + manager.countCustomer() + " members in the club. \n\n");
+
         manager.remove(1);
 
         System.out.println(manager.getCustomer(1) == null ? "Not exist \n\n" : manager.getCustomer(1) + "\n\n");

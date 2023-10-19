@@ -16,6 +16,14 @@ public class Court {
         return price;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public CourtType getType() {
+        return type;
+    }
+
     @Override
     public String toString() {
         return "Court Name: " + name + "\n" +
