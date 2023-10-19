@@ -12,8 +12,27 @@ public class NIF {
     }
 
     private boolean isValidNIF(String number) {
-        return number != null && number.length() == 10;
+        if (number == null || number.length() != 9) {
+            return false;
+        }
+
+        String digitsPart = number.substring(0, 8);
+        char controlLetter = number.charAt(8);
+
+        if (!digitsPart.matches("\\d{8}")) {
+            return false; // The first 8 characters should be digits.
+        }
+
+        int numericPart = Integer.parseInt(digitsPart);
+        int remainder = numericPart % 23;
+
+        // Define a mapping of remainder values to control letters.
+        char[] controlLetters = "TRWAGMYFPDXBNJZSQVHLCKE".toCharArray();
+        char expectedControlLetter = controlLetters[remainder];
+
+        return controlLetter == expectedControlLetter;
     }
+
 
     public String getNumber() {
         return number;
