@@ -17,7 +17,7 @@ public class NIF {
         }
 
         String digitsPart = number.substring(0, 8);
-        char controlLetter = number.charAt(8);
+        char controlLetter = Character.toUpperCase(number.charAt(8));
 
         if (!digitsPart.matches("\\d{8}")) {
             return false; // The first 8 characters should be digits.
@@ -32,6 +32,7 @@ public class NIF {
 
         return controlLetter == expectedControlLetter;
     }
+
 
 
     public String getNumber() {
