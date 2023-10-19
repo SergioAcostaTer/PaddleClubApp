@@ -1,5 +1,7 @@
 package org.ulpgc.is1.model;
 
+import java.util.Objects;
+
 public class Court {
     private final String name;
     private final int price;
@@ -15,8 +17,6 @@ public class Court {
         return price;
     }
 
-
-
     public String getName() {
         return name;
     }
@@ -30,5 +30,20 @@ public class Court {
         return "Court Name: " + name + "\n" +
                 "Price: " + price + "€\n" +
                 "Type: " + type;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Court court = (Court) o;
+        return price == court.price &&
+                Objects.equals(name, court.name) &&
+                type == court.type;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, price, type);
     }
 }

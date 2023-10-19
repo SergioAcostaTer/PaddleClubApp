@@ -14,12 +14,17 @@ public class PaddleManager {
     }
 
     public void addCourt(Court court) {
-        courts.add(court);
+        if (!courts.contains(court)) {
+            courts.add(court);
+        }
     }
 
     public void addCustomer(Customer customer) {
-        customers.add(customer);
+        if (!customers.contains(customer)) {
+            customers.add(customer);
+        }
     }
+
 
     public Court getCourt(int index) {
         if (index >= 0 && index < courts.size()) {
