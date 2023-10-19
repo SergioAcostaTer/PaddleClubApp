@@ -30,7 +30,7 @@ public class PaddleManager {
         if (index >= 0 && index < courts.size()) {
             return courts.get(index);
         } else {
-            return null; // or throw an exception or handle the error in another way
+            return null;
         }
     }
 
