@@ -9,4 +9,12 @@ public class Member extends Customer {
         this.points = points;
         this.address = address;
     }
+
+    public int getPoints() {
+        return points;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
 }

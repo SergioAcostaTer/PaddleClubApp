@@ -52,6 +52,9 @@ public class Reservation {
         return court;
     }
 
+    public List<Extra> getExtras() {
+        return extras;
+    }
 
     @Override
     public String toString() {

@@ -15,6 +15,18 @@ public class NIF {
         return number != null && number.length() == 10;
     }
 
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        if (isValidNIF(number)) {
+            this.number = number;
+        } else {
+            this.number = "XXXX";
+        }
+    }
+
     @Override
     public String toString() {
         return number;
