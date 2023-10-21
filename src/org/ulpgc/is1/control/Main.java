@@ -6,18 +6,7 @@ public class Main {
     public static void main(String[] args) {
 
         PaddleManager manager = new PaddleManager();
-
-        Customer member = new Member("John", "Doe", new NIF("12345678Z"), 100, new Address("123 Main St.", 20, 2, "35010"));
-        Customer invalidNIFCustomer = new Customer("Alice", "Johnson", new NIF("12SD34TT4"));
-
-        manager.addCustomer(member);
-        manager.addCustomer(invalidNIFCustomer);
-
-        Court fastCourt = new Court("Fast Court 1", 20, CourtType.FAST_COURT);
-        Court slowCourt = new Court("Slow Court 1", 15, CourtType.SLOW_COURT);
-
-        manager.addCourt(fastCourt);
-        manager.addCourt(slowCourt);
+        init(manager);
 
         System.out.println(manager.getCustomer(0) + "\n\n");
         System.out.println(manager.getCustomer(1) + "\n\n");
@@ -41,5 +30,18 @@ public class Main {
             System.out.println(res);
         }
 
+    }
+    public static void init(PaddleManager manager){
+        Customer member = new Member("John", "Doe", new NIF("12345678Z"), 100, new Address("123 Main St.", 20, 2, "35010"));
+        Customer invalidNIFCustomer = new Customer("Alice", "Johnson", new NIF("12SD34TT4"));
+
+        manager.addCustomer(member);
+        manager.addCustomer(invalidNIFCustomer);
+
+        Court fastCourt = new Court("Fast Court 1", 20, CourtType.FAST_COURT);
+        Court slowCourt = new Court("Slow Court 1", 15, CourtType.SLOW_COURT);
+
+        manager.addCourt(fastCourt);
+        manager.addCourt(slowCourt);
     }
 }
